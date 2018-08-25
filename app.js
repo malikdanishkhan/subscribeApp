@@ -38,9 +38,10 @@ app.get("/", function(req, res){
   connection.query(q , function(err, result) {
   console.log(err);
   console.log(result);
+   connection.release();
   //res.send("We have " + result[0].users + " users.");
   // sends the requested data to front-end (html)
-  res.render("home", {data: result[0].list});
+  res.render("home", {data: result[0].users});
   console.log("Someone requested the user page!");
  });
 });
@@ -63,6 +64,7 @@ app.post("/subscribe", function(req, res) {
             //else send user an error message
             if(result[0].count==0){
                 connection.query('INSERT INTO list SET ?', person, function(err, result){
+                 connection.release();
                 if (err) throw err;
                 });
                 
