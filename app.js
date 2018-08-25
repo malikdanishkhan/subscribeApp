@@ -90,10 +90,10 @@ app.post("/subscribe", function(req, res) {
 });
 
 //server is listening
-app.listen(8080, function(){
-    console.log("Server running on 8080!");
-});
+// app.listen(8080, function(){
+//     console.log("Server running on 8080!");
+// });
 
-// app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT, process.env.IP);
 
 
