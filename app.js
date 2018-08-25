@@ -8,6 +8,8 @@ var flash = require('connect-flash');
 var session = require('express-session');
 const sgMail = require('@sendgrid/mail');
 
+// const { Pool, Client } = require('pg')
+
 app.use(cookieParser('secret'));
 app.use(session({cookie: { maxAge: 60000 }}));
 app.use(flash());
@@ -19,10 +21,13 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
 //establish node.js connection to database for accessing
+mysql://bf1920e1864032:901617e5@us-cdbr-iron-east-01.cleardb.net/heroku_1961c11779a1f40?reconnect=true
+
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'malikdanishkhan',
-    database : 'join_us'
+    host     : 'us-cdbr-iron-east-01.cleardb.net',
+    user     : 'bf1920e186403',
+    password : '901617e5',
+    database : 'heroku_1961c11779a1f40'
 });
 
 
@@ -85,8 +90,10 @@ app.post("/subscribe", function(req, res) {
 });
 
 //server is listening
-app.listen(8080, function(){
-    console.log("Server running on 8080!");
-});
+// app.listen(8080, function(){
+//     console.log("Server running on 8080!");
+// });
 
-// app.listen(process.env.PORT, process.env.IP);
+app.listen(process.evn.PORT, process.env.IP);
+
+

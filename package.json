@@ -20,7 +20,8 @@
     "express-session": "^1.15.6",
     "faker": "^4.1.0",
     "js-alert": "^1.0.4",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "pg": "^7.4.3"
   },
   "devDependencies": {},
   "description": ""
