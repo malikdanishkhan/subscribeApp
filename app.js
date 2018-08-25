@@ -33,14 +33,14 @@ var connection = mysql.createConnection({
 
 //route to home-page
 app.get("/", function(req, res){
-  var q = 'SELECT COUNT(*) AS users FROM users';
+  var q = 'SELECT COUNT(*) AS users FROM list';
  
   connection.query(q , function(err, result) {
   console.log(err);
   console.log(result);
   //res.send("We have " + result[0].users + " users.");
   // sends the requested data to front-end (html)
-  res.render("home", {data: result[0].users});
+  res.render("home", {data: result[0].list});
   console.log("Someone requested the user page!");
  });
 });
@@ -55,14 +55,14 @@ app.post("/subscribe", function(req, res) {
     }
     
     //check if email is already in database
-    connection.query('SELECT COUNT(*) AS count FROM users WHERE email LIKE ?', person.email, function(err, result){
+    connection.query('SELECT COUNT(*) AS count FROM list WHERE email LIKE ?', person.email, function(err, result){
          if (err) throw err;
             console.log("here is the email count " + req.body.email);
             
             //if email-count in database is 0, then add email to database
             //else send user an error message
             if(result[0].count==0){
-                connection.query('INSERT INTO users SET ?', person, function(err, result){
+                connection.query('INSERT INTO list SET ?', person, function(err, result){
                 if (err) throw err;
                 });
                 
