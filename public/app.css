@@ -1,0 +1,61 @@
+body {
+  background: url(https://images.unsplash.com/photo-1535039327622-6f71993e33ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0b797e94c752bffd4533532241a87d0e&auto=format&fit=crop&w=1350&q=80) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+p {
+	font-family: 'Sarpanch', sans-serif;
+	font-weight: lighter;
+	color: black;
+	font-size: 35px;
+}
+
+.subscribe {
+	font-family: 'Sarpanch', sans-serif;
+	text-transform: uppercase;
+	font-weight: bolder;
+	letter-spacing: 20px;
+	color: black;
+	font-size: 170px;
+}
+
+.join {
+	margin-left: 105px;
+	margin-top: 20px;
+}
+
+.subscribebox {
+	top: 30%;
+    left: 50%;
+    position: absolute;
+    margin-left: -565.245px;
+    margin-top: -70.555px;
+}
+
+.emailinput {
+	margin-left: 230px;
+	margin-top: 80px;
+    font-size: 30px;
+}
+
+input {
+	resize: none;
+	width: 430px;
+}
+
+ #but {
+ 	font-family: 'Sarpanch', sans-serif;
+ 	padding-left: 430px;
+ 	margin-top: -51px;
+ }
+
+
+button {
+	resize: none;
+	max-width: 180px;
+	min-width: 180px;
+	height: 52px;
+}
