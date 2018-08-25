@@ -38,7 +38,6 @@ app.get("/", function(req, res){
   connection.query(q , function(err, result) {
   console.log(err);
   console.log(result);
-   connection.release();
   //res.send("We have " + result[0].users + " users.");
   // sends the requested data to front-end (html)
   res.render("home", {data: result[0].users});
