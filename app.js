@@ -25,7 +25,7 @@ mysql://bf1920e1864032:901617e5@us-cdbr-iron-east-01.cleardb.net/heroku_1961c117
 
 var connection = mysql.createConnection({
     host     : 'us-cdbr-iron-east-01.cleardb.net',
-    user     : 'bf1920e186403',
+    user     : 'bf1920e1864032',
     password : '901617e5',
     database : 'heroku_1961c11779a1f40'
 });
