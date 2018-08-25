@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 //establish node.js connection to database for accessing
 mysql://bf1920e1864032:901617e5@us-cdbr-iron-east-01.cleardb.net/heroku_1961c11779a1f40?reconnect=true
 
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
     host     : 'us-cdbr-iron-east-01.cleardb.net',
     user     : 'bf1920e1864032',
     password : '901617e5',
@@ -33,16 +33,24 @@ var connection = mysql.createConnection({
 
 //route to home-page
 app.get("/", function(req, res){
+    
+  pool.getConnection(function(err, connection) {
+ ``    
+    
   var q = 'SELECT COUNT(*) AS users FROM list';
  
-  connection.query(q , function(err, result) {
-  console.log(err);
+  connection.query(q , function(error, result) {
+  connection.release();
+  console.log(error);
   console.log(result);
+  
+  if(error) throw error;
   //res.send("We have " + result[0].users + " users.");
   // sends the requested data to front-end (html)
   res.render("home", {data: result[0].users});
   console.log("Someone requested the user page!");
  });
+});  
 });
 
 
@@ -54,6 +62,8 @@ app.post("/subscribe", function(req, res) {
         email: req.body.email
     }
     
+     pool.getConnection(function(err, connection) {
+    
     //check if email is already in database
     connection.query('SELECT COUNT(*) AS count FROM list WHERE email LIKE ?', person.email, function(err, result){
          if (err) throw err;
@@ -62,9 +72,9 @@ app.post("/subscribe", function(req, res) {
             //if email-count in database is 0, then add email to database
             //else send user an error message
             if(result[0].count==0){
-                connection.query('INSERT INTO list SET ?', person, function(err, result){
+                connection.query('INSERT INTO list SET ?', person, function(error, result){
                  connection.release();
-                if (err) throw err;
+                if (error) throw error;
                 });
                 
                 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -88,6 +98,7 @@ app.post("/subscribe", function(req, res) {
             res.render('index');
             }
     });
+});
 });
 
 //server is listening
