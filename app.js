@@ -66,15 +66,15 @@ app.post("/subscribe", function(req, res) {
                 if (err) throw err;
                 });
                 
-                sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-                const msg = {
-                to: req.body.email,
-                from: 'malik083@morris.umn.edu',
-                subject: 'SUBSCRIPTION CONFIRMATION',
-                text: 'Thank you for subscribing!',
-                html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-                };
-                sgMail.send(msg);
+                // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+                // const msg = {
+                // to: req.body.email,
+                // from: 'malik083@morris.umn.edu',
+                // subject: 'SUBSCRIPTION CONFIRMATION',
+                // text: 'Thank you for subscribing!',
+                // html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+                // };
+                // sgMail.send(msg);
                 
                 req.flash('success', 'Thank you for subscribing.');
                 res.locals.messageSuccess = req.flash();
