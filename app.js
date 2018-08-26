@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
 
-//const sgMail = require('@sendgrid/mail');
+const sgMail = require('@sendgrid/mail');
 // const { Pool, Client } = require('pg')
 
 app.use(cookieParser('secret'));
@@ -20,9 +20,10 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "ejs");
 
-//establish node.js connection to database 
+// user:password@host/database for heroku Clear DB MySQL.
 mysql://bf1920e1864032:901617e5@us-cdbr-iron-east-01.cleardb.net/heroku_1961c11779a1f40?reconnect=true
 
+//establish node.js connection to database 
 var pool = mysql.createPool({
     host     : 'us-cdbr-iron-east-01.cleardb.net',
     user     : 'bf1920e1864032',
@@ -31,7 +32,7 @@ var pool = mysql.createPool({
 });
 
 
-//route to home-page
+//route to home-page.
 app.get("/", function(req, res){
     pool.getConnection(function(err, connection) {
     var q = 'SELECT COUNT(*) AS users FROM list';
@@ -74,15 +75,15 @@ app.post("/subscribe", function(req, res) {
                 if (error) throw error;
                 });
                 
-                // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-                // const msg = {
-                // to: req.body.email,
-                // from: 'malik083@morris.umn.edu',
-                // subject: 'SUBSCRIPTION CONFIRMATION',
-                // text: 'Thank you for subscribing!',
-                // html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-                // };
-                // sgMail.send(msg);
+                sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+                const msg = {
+                to: req.body.email,
+                from: 'app106822316@heroku.com',
+                subject: 'SUBSCRIPTION CONFIRMATION',
+                text: 'Thank you for subscribing!',
+                html: '<strong>SUBSCRIPTION</strong>',
+                };
+                sgMail.send(msg);
                 
                 req.flash('success', 'Thank you for subscribing.');
                 res.locals.messageSuccess = req.flash();
