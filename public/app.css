@@ -1,5 +1,5 @@
 body {
-  background: url(https://images.unsplash.com/photo-1535039327622-6f71993e33ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0b797e94c752bffd4533532241a87d0e&auto=format&fit=crop&w=1350&q=80) no-repeat center center fixed; 
+  background: url(https://images.unsplash.com/photo-1504966981333-1ac8809be1ca?ixlib=rb-0.3.5&s=d739963f12cdfd9b8e8ba50466a3b545&auto=format&fit=crop&w=1350&q=80) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +9,7 @@ body {
 p {
 	font-family: 'Sarpanch', sans-serif;
 	font-weight: lighter;
-	color: white;
+	color: #dddbdd;
 	font-size: 35px;
 }
 
@@ -18,7 +18,7 @@ p {
 	text-transform: uppercase;
 	font-weight: bolder;
 	letter-spacing: 5px;
-	color: black;
+	color: #dddbdd;
 	font-size: 170px;
 }
 

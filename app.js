@@ -82,7 +82,7 @@ app.post("/subscribe", function(req, res) {
                 from: 'malik083@morris.umn.edu',
                 subject: 'Subscription Confirmation',
                 text: 'Thank you for subscribing!',
-                html: '<p>Thank you for <strong>subscribing!</strong><br></br><br></br><p>Best,</p>Danish',
+                html: '<p>Thank you for <strong>subscribing!</strong><br></br><br></br>Best,<br>Danish</br></p>',
                 };
                 sgMail.send(msg);
                 
