@@ -6,8 +6,8 @@ var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var session = require('express-session');
-const sgMail = require('@sendgrid/mail');
 
+//const sgMail = require('@sendgrid/mail');
 // const { Pool, Client } = require('pg')
 
 app.use(cookieParser('secret'));
@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.set("view engine", "ejs");
 
-//establish node.js connection to database for accessing
+//establish node.js connection to database 
 mysql://bf1920e1864032:901617e5@us-cdbr-iron-east-01.cleardb.net/heroku_1961c11779a1f40?reconnect=true
 
 var pool = mysql.createPool({
@@ -33,24 +33,21 @@ var pool = mysql.createPool({
 
 //route to home-page
 app.get("/", function(req, res){
-    
-  pool.getConnection(function(err, connection) {
- ``    
-    
-  var q = 'SELECT COUNT(*) AS users FROM list';
+    pool.getConnection(function(err, connection) {
+    var q = 'SELECT COUNT(*) AS users FROM list';
  
-  connection.query(q , function(error, result) {
-  connection.release();
-  console.log(error);
-  console.log(result);
+        connection.query(q , function(error, result) {
+            connection.release();
+            console.log(error);
+            console.log(result);
   
-  if(error) throw error;
-  //res.send("We have " + result[0].users + " users.");
-  // sends the requested data to front-end (html)
-  res.render("home", {data: result[0].users});
-  console.log("Someone requested the user page!");
- });
-});  
+            if(error) throw error;
+   
+            // sends data count to front-end
+            res.render("home", {data: result[0].users});
+            console.log("Someone requested the user page!");
+        });
+    });  
 });
 
 
@@ -102,10 +99,6 @@ app.post("/subscribe", function(req, res) {
 });
 
 //server is listening
-// app.listen(8080, function(){
-//     console.log("Server running on 8080!");
-// });
-
 app.listen(process.env.PORT, process.env.IP);
 
-//iwe
+
