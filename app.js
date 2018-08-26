@@ -75,13 +75,14 @@ app.post("/subscribe", function(req, res) {
                 if (error) throw error;
                 });
                 
+                //sends a confirmation email to the user
                 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
                 const msg = {
                 to: req.body.email,
-                from: 'app106822316@heroku.com',
-                subject: 'SUBSCRIPTION CONFIRMATION',
+                from: 'Subscribe.com',
+                subject: 'Subscription Confirmation',
                 text: 'Thank you for subscribing!',
-                html: '<strong>SUBSCRIPTION</strong>',
+                html: '<p>Thank you for <strong>subscribing!</strong>',
                 };
                 sgMail.send(msg);
                 
