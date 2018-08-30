@@ -32,9 +32,10 @@ p {
 	letter-spacing: 4px;
 }
 
-.emailinput {
+form {
 	margin: 0 29%;
 	margin-top: 5%;
+
 }
 
 input {
