@@ -39,7 +39,6 @@ yarn install
 ### Front-end
 
 * [ejs](http://ejs.co/)
-* [Google Maps APIs](https://developers.google.com/maps/)
 * [Bootstrap](https://getbootstrap.com/docs/3.3/)
 
 ### Back-end
