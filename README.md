@@ -12,6 +12,9 @@ To run the app, go to [https://subscribetodanish.herokuapp.com/](https://subscri
 * Subscription Input
   - Users can enter their email address to be added to the subscription list.
   
+* Subscription Confirmation
+  - Subscribers receive a confirmation email.
+  
 * Subscription List Count
   - Provides a dynamic count of the number of people who subscribed via email.
   
