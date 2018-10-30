@@ -15,6 +15,10 @@ To run the app, go to [https://subscribetodanish.herokuapp.com/](https://subscri
 * Subscription List Count
   - Provides a dynamic count of the number of people who subscribed via email.
   
+* Success/Error messages
+  - Displays a success message if user enters a unique email address successfully.
+  - Displays an error message if user enters duplicate email.
+  
 ## Getting Started
 ### Clone or download this repository
 
